@@ -1,0 +1,27 @@
+вместо этого всего бардака по-моему проще создать один элемент, тот-же App в данном случае и сверху указать такой компонент в котором будут линки (меню типа) .. или sidebar
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <RootLayout />,
+    children: [
+      { path: '/', element: <HomePage /> },
+      { path: '/products', element: <ProductsPage /> }
+    ]
+  },
+]);
+
+==
+
+import { Outlet } from 'react-router-dom';
+
+import MainNavigation from '../components/MainNavigation';
+
+function RootLayout() {
+  return <>
+    <MainNavigation />
+    <Outlet />
+  </>;
+}
+
+export default RootLayout;
